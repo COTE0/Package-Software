@@ -30,7 +30,7 @@ public class PackageDAO {
         }
     }
     public void insertPack(Package pckg) {
-        String sql = "INSERT INTO packages (cl_id, destX, destY, time_origin) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO packages (client_id, destX, destY, time_origin) VALUES (?, ?, ?, ?)";
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, pckg.getClient_id());

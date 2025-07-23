@@ -12,7 +12,10 @@ public class Package {
     public LocalDate getTime_origin() {
         return time_origin;
     }
-
+    public String toString(){
+        return "P_ID: "+getP_ID()+"  client_id: "+getClient_id()+"  destX: "+getDestX()+
+                "  destY: "+getDestY()+ "  time_origin: "+getTime_origin().toString();
+    }
     public void setTime_origin(LocalDate time_origin) {
         this.time_origin = time_origin;
     }
