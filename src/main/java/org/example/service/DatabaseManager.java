@@ -1,39 +1,26 @@
 package org.example.service;
 
+import org.example.util.ConfigUtil;
 import org.example.util.FileUtil;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:mysql://localhost:3306/PckgDB?serverTimezone=UTC";
 
-
-    private static String getConfig(String property) throws IOException {
-        String appConfigPath = FileUtil.resourcesPath + "app.properties";
-        Properties appProps = new Properties();
-        appProps.load(new FileInputStream(appConfigPath));
-        return appProps.getProperty(property);
-    }
     private static final String PASSWORD;
     private static final String USER;
 
     static {
         try {
-            PASSWORD = getConfig("PASS");
-            USER = getConfig("USER");
+            PASSWORD = ConfigUtil.getAppConfig("PASS");
+            USER = ConfigUtil.getAppConfig("USER");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
