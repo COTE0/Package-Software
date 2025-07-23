@@ -32,7 +32,7 @@ public class DatabaseManager {
             for(String sql:queries){
                 String query=sql.trim();
                 if (!query.isEmpty()){
-                    stmt.executeQuery(query);
+                    stmt.execute(query);
                 }
             }
 

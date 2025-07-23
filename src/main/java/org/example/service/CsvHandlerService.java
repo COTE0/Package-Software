@@ -1,14 +1,20 @@
 package org.example.service;
 
+import org.example.model.Client;
 import org.example.model.Package;
 
 import java.util.List;
 
 public class CsvHandlerService {
-    PackageDAO db = new PackageDAO();
-    public void writePackagesToDB(List<Package> packages){
+
+    public static void writePackagesToDB(List<Package> packages){
         for(Package p : packages){
-            db.insertPack(p);
+            PackageDAO.insertPack(p);
+        }
+    }
+    public static void writeClientsToDB(List<Client> clients){
+        for(Client c : clients){
+            PackageDAO.insertClient(c);
         }
     }
 }

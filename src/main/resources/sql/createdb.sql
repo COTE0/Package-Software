@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `PckgDB`;
 
 USE `PckgDB`;
 
-CREATE TABLE cl(
+CREATE TABLE IF NOT EXISTS cl(
 client_id INT NOT NULL AUTO_INCREMENT,
 first_name VARCHAR(50),
 last_name VARCHAR(50),
@@ -11,7 +11,7 @@ PRIMARY KEY (client_id)
 
 
 
-CREATE TABLE packages (
+CREATE TABLE IF NOT EXISTS packages (
   P_ID INT NOT NULL AUTO_INCREMENT,
   client_id INT NOT NULL,
   destX FLOAT,

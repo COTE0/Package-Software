@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PathService {
     public List<Package> getNearestNeighbourPath(float originX, float originY){
-        List<Package> packages=new PackageDAO().getAllPackageCords();
+        List<Package> packages=new PackageDAO().getAllPackages();
         Cord origin=new Cord(originX, originY);
         for(int visitedCount=0;visitedCount< packages.size()-1;visitedCount++){
             int minIndex=visitedCount;
